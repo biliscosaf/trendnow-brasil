@@ -1,0 +1,87 @@
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+/.nyc_output
+
+# Next.js
+/.next/
+/out/
+*.tsbuildinfo
+
+# Production
+/build
+/dist
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production.local
+.env.development.local
+.env.test.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Misc
+.cache/
+.turbo/
+dist-ssr/
+coverage/
+.env.*.local
+*.pem
+*.pfx
+*.p12
+*.p8
+*.key
+*.keystore
+*.jks
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+
+# Playwright
+test-results/
+playwright-report/
+
+# Vercel
+.vercel
+
+# Dependencies that shouldn't be checked in
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# IDE Plugin Specific
+*.njsproj
+*.sln
+*.sw?
+
+# Project specific
+public/uploads/
+data/
+temp/

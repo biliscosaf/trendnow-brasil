@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: trendnow_db
+    environment:
+      POSTGRES_USER: trendnow_user
+      POSTGRES_PASSWORD: trendnow_password
+      POSTGRES_DB: trendnow_brasil
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U trendnow_user -d trendnow_brasil"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - trendnow
+
+volumes:
+  postgres_data:
+
+networks:
+  trendnow:
+    driver: bridge
