@@ -49,6 +49,7 @@
     "@types/react-dom": "18.2.18",
     "@types/bcrypt": "5.0.2",
     "@types/uuid": "9.0.7",
+    "@types/pg": "8.10.9",
     "autoprefixer": "10.4.16",
     "drizzle-kit": "0.20.13",
     "postcss": "8.4.32",
