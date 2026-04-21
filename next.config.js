@@ -108,27 +108,6 @@ const nextConfig = {
     }
   },
 
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.optimization = {
-        ...config.optimization,
-        splitChunks: {
-          chunks: 'all',
-          cacheGroups: {
-            default: false,
-            vendors: false,
-            vendor: {
-              filename: 'chunks/vendor.js',
-              chunks: 'all',
-              test: /node_modules/,
-            },
-          },
-        },
-      }
-    }
-    return config
-  },
-
   experimental: {
     optimizePackageImports: ['@icons-pack/react-simple-icons'],
   },
