@@ -38,7 +38,7 @@
     "pg": "8.11.3",
     "axios": "1.6.5",
     "@upstash/ratelimit": "1.1.0",
-    "@upstash/redis": "1.25.4",
+    "@upstash/redis": "1.25.2",
     "mercadopago": "2.1.0",
     "next-image-export-optimizer": "1.18.1",
     "csv-parse": "5.5.0",
