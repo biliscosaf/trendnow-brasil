@@ -40,7 +40,6 @@
     "@upstash/ratelimit": "1.0.1",
     "@upstash/redis": "1.25.0",
     "mercadopago": "2.0.0",
-    "next-image-export-optimizer": "1.17.0",
     "csv-parse": "5.4.1",
     "uuid": "9.0.0"
   },
