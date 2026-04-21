@@ -130,7 +130,7 @@ interface UIStore {
   setSelectedProduct: (product: Product | null) => void
 }
 
-export const useUIStore = create<UIStore>((set, get) => ({
+export const useUIStore = create<UIStore>((set) => ({
   theme: 'light',
   isMobileMenuOpen: false,
   isCartOpen: false,
