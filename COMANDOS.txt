@@ -1,0 +1,54 @@
+════════════════════════════════════════════════════════════════
+TrendNow Brasil - Comandos para Copiar-Colar
+════════════════════════════════════════════════════════════════
+
+PASSO 1: GITHUB (Abra seu terminal e copie-cole tudo de uma vez)
+════════════════════════════════════════════════════════════════
+
+cd C:/Users/Maria/trendnow-brasil
+git branch -M main
+git remote add origin https://github.com/biliscosaf/trendnow-brasil.git
+git push -u origin main
+
+
+PASSO 2: VERCEL (Abra navegador)
+════════════════════════════════════════════════════════════════
+
+1. https://vercel.com/new
+2. Import Git Repository
+3. Cole: https://github.com/biliscosaf/trendnow-brasil.git
+4. Continue
+5. Procure "Environment Variables"
+6. Adicione estas variáveis (copie do .env.local):
+
+DATABASE_URL=postgresql://trendnow_user:trendnow_password@localhost:5432/trendnow_brasil?schema=public
+NEXTAUTH_URL=https://trendnow-brasil.vercel.app
+NEXTAUTH_SECRET=dev-secret-32-chars-minimum-ok
+JWT_SECRET=dev-jwt-secret-64-chars-minimum-for-development-only-not-secure
+JWT_REFRESH_SECRET=dev-refresh-secret-64-chars-minimum-for-development-only-not-secure
+ENCRYPTION_KEY=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+NEXT_PUBLIC_MP_PUBLIC_KEY=APP_USR-dev-public-key
+MERCADO_PAGO_ACCESS_TOKEN=APP_USR-dev-access-token
+NODE_ENV=production
+
+7. Clique "Deploy"
+
+
+PASSO 3: TERMINAL (Após deploy terminar)
+════════════════════════════════════════════════════════════════
+
+vercel env pull
+pnpm install
+pnpm run db:migrate
+pnpm run import:products ./products_export_1.csv
+
+
+RESULTADO FINAL
+════════════════════════════════════════════════════════════════
+
+Site: https://trendnow-brasil.vercel.app
+GitHub: https://github.com/biliscosaf/trendnow-brasil
+
+Parabéns! Sua loja está no ar! 🎉
+
+════════════════════════════════════════════════════════════════
