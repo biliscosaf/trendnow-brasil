@@ -133,8 +133,8 @@ async function importProducts() {
 
       for (const product of batch) {
         // Inserir produto
+        const productId = product.id;
         await db.insert(products).values({
-          id: product.id,
           handle: product.handle,
           title: product.title,
           description: product.description,
@@ -142,12 +142,12 @@ async function importProducts() {
           category: product.category,
           tags: product.tags,
           price: product.price,
-          compare_at_price: product.compare_at_price,
-          cost_per_item: product.cost_per_item,
+          compareAtPrice: product.compare_at_price,
+          costPerItem: product.cost_per_item,
           status: product.status,
           published: product.published,
-          seo_title: product.seo_title,
-          seo_description: product.seo_description,
+          seoTitle: product.seo_title,
+          seoDescription: product.seo_description,
           images: product.images,
           segmentation: {
             segment: 'core',
@@ -162,18 +162,17 @@ async function importProducts() {
         // Inserir variantes
         for (const variant of product.variants) {
           await db.insert(variants).values({
-            id: variant.id,
-            product_id: product.id,
+            productId: productId,
             sku: variant.sku,
             title: variant.title,
             price: variant.price,
-            compare_at_price: variant.compare_at_price,
-            cost_per_item: variant.cost_per_item,
+            compareAtPrice: variant.compare_at_price,
+            costPerItem: variant.cost_per_item,
             quantity: variant.quantity,
-            option1_name: variant.option1_name,
-            option1_value: variant.option1_value,
-            option2_name: variant.option2_name,
-            option2_value: variant.option2_value,
+            option1Name: variant.option1_name,
+            option1Value: variant.option1_value,
+            option2Name: variant.option2_name,
+            option2Value: variant.option2_value,
           });
         }
       }
