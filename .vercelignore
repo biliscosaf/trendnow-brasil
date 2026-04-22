@@ -1,0 +1,13 @@
+.git
+.gitignore
+README.md
+CHANGELOG.md
+.env.local
+.env.*.local
+node_modules/
+.next/cache
+.turbo
+dist/
+build/
+*.log
+.DS_Store
