@@ -3,18 +3,18 @@
 const securityHeaders = [
   {
     key: 'Strict-Transport-Security',
-    value: 'max-age=63072000; includeSubDomains; preload',
+    value: 'max-age=31536000; includeSubDomains; preload',
   },
   {
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' https://sdk.mercadopago.com",
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://sdk.mercadopago.com https://vercel.live",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.vercel.app",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: https: blob:",
-      "connect-src 'self' https://api.mercadopago.com https://correioslog.correios.com.br",
-      "frame-src https://www.mercadopago.com.br",
+      "connect-src 'self' https://api.mercadopago.com https://correioslog.correios.com.br https://vercel.live",
+      "frame-src 'self' https://www.mercadopago.com.br https://vercel.live",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",
@@ -80,7 +80,7 @@ const nextConfig = {
           ...securityHeaders,
           {
             key: 'Cache-Control',
-            value: 'no-cache, max-age=0, must-revalidate',
+            value: 'public, max-age=3600, s-maxage=3600',
           },
         ],
       },
@@ -90,6 +90,15 @@ const nextConfig = {
           {
             key: 'Cache-Control',
             value: 'no-store, max-age=0',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },
