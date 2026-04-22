@@ -76,7 +76,13 @@ const nextConfig = {
     return [
       {
         source: '/(.*)',
-        headers: securityHeaders,
+        headers: [
+          ...securityHeaders,
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, max-age=0, must-revalidate',
+          },
+        ],
       },
       {
         source: '/api/(.*)',
