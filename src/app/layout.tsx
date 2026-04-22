@@ -15,6 +15,7 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.SITE_URL || 'https://trendnow-brasil.vercel.app'),
   title: 'TrendNow Brasil - Tudo em Alta com Melhor Preço',
   description:
     'Descobra os produtos mais em tendência com os melhores preços. Gadgets, eletrônicos, beleza, pets e mais. TrendNow Brasil.',
